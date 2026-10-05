@@ -1,0 +1,16 @@
+{
+  "name": "Smart Richard — Learn • Discover • Stay Independent",
+  "short_name": "Smart Richard",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f7f9f8",
+  "theme_color": "#176b66",
+  "icons": [
+    {
+      "src": "smart-richard-icon.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
