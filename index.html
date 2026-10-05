@@ -20,10 +20,19 @@ h1{font-size:clamp(34px,7vw,58px);line-height:1.05;margin:28px 0 10px;letter-spa
 .primary{background:#fff;color:var(--teal)}.outline{border:2px solid #fff;color:#fff;background:transparent}
 main{padding:28px 0 55px}.notice{background:#fff8df;border:1px solid #ead28a;border-radius:16px;padding:17px 20px;margin-bottom:25px}
 .notice strong{display:block;font-size:20px}
-h2{font-size:clamp(27px,5vw,37px);margin:42px 0 7px}.lead{color:var(--muted);margin-top:0;font-size:19px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;margin-top:18px}
-.card,.panel{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:21px;box-shadow:0 2px 8px rgba(20,50,45,.05)}
-.card{display:flex;flex-direction:column}.card h3{font-size:23px;margin:0 0 7px}.card p{color:var(--muted);margin:0 0 17px}.open{margin-top:auto;background:var(--teal);color:#fff;text-align:center;padding:10px;border-radius:10px;text-decoration:none;font-weight:750}
+h2{font-size:clamp(27px,5vw,37px);margin:50px 0 9px}.lead{color:var(--muted);margin-top:0;font-size:19px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:24px;margin-top:22px}
+.card,.panel{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:23px;box-shadow:0 3px 10px rgba(20,50,45,.06)}
+.card{display:flex;flex-direction:column;position:relative;overflow:hidden}
+.card:nth-child(3n+1){border-top:5px solid #4b8f8a}
+.card:nth-child(3n+2){border-top:5px solid #e1a83b}
+.card:nth-child(3n){border-top:5px solid #6f8db7}
+.card h3{font-size:25px;line-height:1.25;margin:0 0 10px;color:var(--teal);font-weight:800}
+.card h3 a{color:inherit;text-decoration:none}
+.card h3 a:hover{text-decoration:underline}
+.card p{color:var(--muted);margin:0 0 13px}
+.open{margin-top:3px;align-self:flex-start;background:transparent;color:var(--teal);text-align:left;padding:4px 0;border-radius:0;text-decoration:underline;text-underline-offset:3px;font-weight:750;font-size:17px}
+.open:hover{color:var(--dark)}
 .badge{display:inline-block;background:#fff2c9;border-radius:999px;padding:3px 9px;font-size:14px;font-weight:750;margin-bottom:9px}
 .icon-panel{display:grid;grid-template-columns:180px 1fr;gap:24px;align-items:center;background:var(--soft);border:1px solid #c6e2dd;border-radius:20px;padding:22px;margin-top:20px}
 .site-icon{width:180px;height:180px;border-radius:30px;display:block;box-shadow:0 5px 15px rgba(0,0,0,.14)}
@@ -62,8 +71,8 @@ footer{background:var(--dark);color:#dcebea;padding:28px 0 40px}footer a{color:#
 <div>
 <h2 style="margin-top:0">📱 Save the Smart Richard icon</h2>
 <p>You can save this icon to your phone or computer and use it as a reminder for your Smart Richard tools.</p>
-<a class="btn" style="background:var(--teal);color:#fff" href="smart-richard-icon.png" download="Smart-Richard-Icon.png">⬇️ Save Icon</a>
-<p class="small">On iPhone/iPad, if a download button does not appear, press and hold the image and choose <strong>Save to Photos</strong>. On Android, press and hold the image and choose <strong>Download image</strong>.</p>
+<button class="btn" style="background:var(--teal);color:#fff" onclick="saveIcon()">📱 Save Icon to Phone</button>
+<p id="iconMessage" class="small" aria-live="polite">On iPhone/iPad or Android, tap the button and choose <strong>Save Image</strong> or <strong>Save to Photos</strong> from the share menu.</p>
 </div>
 </section>
 
@@ -74,34 +83,34 @@ footer{background:var(--dark);color:#dcebea;padding:28px 0 40px}footer a{color:#
 
 <h2>💻 Learn Technology</h2><p class="lead">Practical technology skills, explained step by step.</p>
 <div class="grid">
-<div class="card"><span class="badge">⭐ Good for beginners</span><h3>Digital Independence Coach</h3><p>Learn useful skills for iPhone, iCloud, files, websites, GitHub, AI, security and backups.</p><a class="open" href="https://smartrichardsg.github.io/Digital-Independence-Coach/">Open app</a></div>
+<div class="card"><span class="badge">⭐ Good for beginners</span><h3><a href="https://smartrichardsg.github.io/Digital-Independence-Coach/">Digital Independence Coach</a></h3><p>Learn useful skills for iPhone, iCloud, files, websites, GitHub, AI, security and backups.</p><a class="open" href="https://smartrichardsg.github.io/Digital-Independence-Coach/">Open app</a></div>
 </div>
 
 <h2>🧠 Train Your Mind</h2><p class="lead">Simple exercises for attention, memory, decision-making and reading.</p>
 <div class="grid">
-<div class="card"><span class="badge">⭐ Good for beginners</span><h3>Observation Coach</h3><p>Look carefully, remember what you saw, and test your observation skills.</p><a class="open" href="https://smartrichardsg.github.io/Observation-Coach/">Open app</a></div>
-<div class="card"><h3>Decision Making Coach</h3><p>Practise thinking through everyday choices and making clearer decisions.</p><a class="open" href="https://smartrichardsg.github.io/Decision-Making-Coach/">Open app</a></div>
-<div class="card"><h3>Speed Reading Coach</h3><p>Practise reading speed, focus and comprehension at your own pace.</p><a class="open" href="https://smartrichardsg.github.io/Speed-Reading-Coach/">Open app</a></div>
+<div class="card"><span class="badge">⭐ Good for beginners</span><h3><a href="https://smartrichardsg.github.io/Observation-Coach/">Observation Coach</a></h3><p>Look carefully, remember what you saw, and test your observation skills.</p><a class="open" href="https://smartrichardsg.github.io/Observation-Coach/">Open app</a></div>
+<div class="card"><h3><a href="https://smartrichardsg.github.io/Decision-Making-Coach/">Decision Making Coach</a></h3><p>Practise thinking through everyday choices and making clearer decisions.</p><a class="open" href="https://smartrichardsg.github.io/Decision-Making-Coach/">Open app</a></div>
+<div class="card"><h3><a href="https://smartrichardsg.github.io/Speed-Reading-Coach/">Speed Reading Coach</a></h3><p>Practise reading speed, focus and comprehension at your own pace.</p><a class="open" href="https://smartrichardsg.github.io/Speed-Reading-Coach/">Open app</a></div>
 </div>
 
 <h2>🗣️ Communicate Better</h2><p class="lead">Build confidence in writing, speaking and expressing your ideas.</p>
 <div class="grid">
-<div class="card"><span class="badge">⭐ Good for beginners</span><h3>Daily Writing Coach</h3><p>Write a little each day, receive corrections, and track your improvement.</p><a class="open" href="https://smartrichardsg.github.io/daily-writing-coach/">Open app</a></div>
-<div class="card"><h3>Articulate Coach</h3><p>Start from the basics and practise expressing yourself clearly and confidently.</p><a class="open" href="https://smartrichardsg.github.io/Articulate-Coach/">Open app</a></div>
-<div class="card"><h3>Say It Better</h3><p>Practise finding clearer and more natural ways to express what you mean.</p><a class="open" href="https://smartrichardsg.github.io/-Say-it-better/">Open app</a></div>
+<div class="card"><span class="badge">⭐ Good for beginners</span><h3><a href="https://smartrichardsg.github.io/daily-writing-coach/">Daily Writing Coach</a></h3><p>Write a little each day, receive corrections, and track your improvement.</p><a class="open" href="https://smartrichardsg.github.io/daily-writing-coach/">Open app</a></div>
+<div class="card"><h3><a href="https://smartrichardsg.github.io/Articulate-Coach/">Articulate Coach</a></h3><p>Start from the basics and practise expressing yourself clearly and confidently.</p><a class="open" href="https://smartrichardsg.github.io/Articulate-Coach/">Open app</a></div>
+<div class="card"><h3><a href="https://smartrichardsg.github.io/-Say-it-better/">Say It Better</a></h3><p>Practise finding clearer and more natural ways to express what you mean.</p><a class="open" href="https://smartrichardsg.github.io/-Say-it-better/">Open app</a></div>
 </div>
 
 <h2>📚 Keep Learning</h2><p class="lead">Small daily activities can keep the mind active and curious.</p>
 <div class="grid">
-<div class="card"><span class="badge">⭐ Good for beginners</span><h3>Japanese — 3 Words a Day</h3><p>Learn a few useful Japanese words at a time, without feeling overwhelmed.</p><a class="open" href="https://smartrichardsg.github.io/japanese-3-words-a-day/">Open app</a></div>
-<div class="card"><h3>Daily Spelling Practice</h3><p>Practise spelling regularly and build confidence one word at a time.</p><a class="open" href="https://smartrichardsg.github.io/Daily-Spelling-Practice/">Open app</a></div>
-<div class="card"><h3>3 Words a Day</h3><p>Expand your vocabulary through a simple daily habit.</p><a class="open" href="https://smartrichardsg.github.io/3-words-a-day/">Open app</a></div>
+<div class="card"><span class="badge">⭐ Good for beginners</span><h3><a href="https://smartrichardsg.github.io/japanese-3-words-a-day/">Japanese — 3 Words a Day</a></h3><p>Learn a few useful Japanese words at a time, without feeling overwhelmed.</p><a class="open" href="https://smartrichardsg.github.io/japanese-3-words-a-day/">Open app</a></div>
+<div class="card"><h3><a href="https://smartrichardsg.github.io/Daily-Spelling-Practice/">Daily Spelling Practice</a></h3><p>Practise spelling regularly and build confidence one word at a time.</p><a class="open" href="https://smartrichardsg.github.io/Daily-Spelling-Practice/">Open app</a></div>
+<div class="card"><h3><a href="https://smartrichardsg.github.io/3-words-a-day/">3 Words a Day</a></h3><p>Expand your vocabulary through a simple daily habit.</p><a class="open" href="https://smartrichardsg.github.io/3-words-a-day/">Open app</a></div>
 </div>
 
 <h2>📝 Everyday Tools</h2><p class="lead">Simple tools for keeping your thoughts and daily activities organised.</p>
 <div class="grid">
-<div class="card"><span class="badge">⭐ Good for beginners</span><h3>Personal Note Pad</h3><p>A simple place for random notes, ideas and things you want to remember.</p><a class="open" href="https://smartrichardsg.github.io/Personal-Note-Pad/">Open app</a></div>
-<div class="card"><h3>Daily Journal</h3><p>Keep a simple record of your thoughts, experiences and daily reflections.</p><a class="open" href="https://smartrichardsg.github.io/-Daily-Journal/">Open app</a></div>
+<div class="card"><span class="badge">⭐ Good for beginners</span><h3><a href="https://smartrichardsg.github.io/Personal-Note-Pad/">Personal Note Pad</a></h3><p>A simple place for random notes, ideas and things you want to remember.</p><a class="open" href="https://smartrichardsg.github.io/Personal-Note-Pad/">Open app</a></div>
+<div class="card"><h3><a href="https://smartrichardsg.github.io/-Daily-Journal/">Daily Journal</a></h3><p>Keep a simple record of your thoughts, experiences and daily reflections.</p><a class="open" href="https://smartrichardsg.github.io/-Daily-Journal/">Open app</a></div>
 </div>
 
 <section class="panel" style="margin-top:24px"><h2 style="margin-top:0">👋 About Me</h2>
@@ -127,6 +136,27 @@ footer{background:var(--dark);color:#dcebea;padding:28px 0 40px}footer a{color:#
 <script>
 let scale=1;
 function changeText(d){scale=Math.max(.9,Math.min(1.25,scale+d*.05));document.body.style.fontSize=(18*scale)+'px'}
+
+async function saveIcon(){
+ const msg=document.getElementById('iconMessage');
+ try{
+   const response=await fetch('smart-richard-icon.png');
+   const blob=await response.blob();
+   const file=new File([blob],'Smart-Richard-Icon.png',{type:'image/png'});
+   if(navigator.share && (!navigator.canShare || navigator.canShare({files:[file]}))){
+     await navigator.share({files:[file],title:'Smart Richard Icon',text:'Smart Richard'});
+     msg.textContent='✅ Use “Save Image” or “Save to Photos” in the share menu to save the icon on your phone.';
+   }else{
+     window.open('smart-richard-icon.png','_blank');
+     msg.textContent='The icon is open. On iPhone/iPad, press and hold it and choose “Save to Photos”. On Android, press and hold it and choose “Download image”.';
+   }
+ }catch(e){
+   if(e.name==='AbortError') return;
+   window.open('smart-richard-icon.png','_blank');
+   msg.textContent='The icon is open. Press and hold it, then choose the option to save the image to your phone.';
+ }
+}
+
 async function copyLink(){
  const el=document.getElementById('siteLink'), msg=document.getElementById('copyMessage');
  const link=window.location.href.split('#')[0];
